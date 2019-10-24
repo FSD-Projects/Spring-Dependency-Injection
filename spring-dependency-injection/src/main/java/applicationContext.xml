@@ -6,13 +6,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 <bean id="fortuneService" class="com.mycompany.spring_dependency_injection.beans.FortuneService" scope="singleton"/>
-<bean id="theCoach" class="com.mycompany.spring_dependency_injection.beans.CricketCoach">
-<!-- <constructor-arg name="fortune" ref="fortuneService"/>  Constructor injection-->
-<!-- <property name="email" value="admin@example.com"/>
-<property name="teamName" value="Sunrisers Hyderabad"/> Literal injection-->
+<bean id="cricketCoach" class="com.mycompany.spring_dependency_injection.beans.CricketCoach">
 <property name="email" value="${foo.email}"/>
 <property name="teamName" value="${foo.teamName}"/>
 <property name="fortune" ref="fortuneService"/>
 </bean>
+
+<!-- <constructor-arg name="fortune" ref="fortuneService"/>  Constructor injection-->
+<!-- <property name="email" value="admin@example.com"/>
+<property name="teamName" value="Sunrisers Hyderabad"/> Literal injection-->
+
+<context:component-scan base-package="com.mycompany.spring_dependency_injection"/>
 <context:property-placeholder location="classpath:sport.properties"/>
 </beans>

@@ -1,11 +1,11 @@
 package com.mycompany.spring_dependency_injection.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import lombok.Setter;
-
-@Setter
+@Component
 public class BaseballCoach implements Coach {
+	@Autowired
 	private Fortune fortune;		//loose coupling
 	
 	/*

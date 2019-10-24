@@ -1,12 +1,15 @@
 package com.mycompany.spring_dependency_injection.beans;
+import org.springframework.stereotype.Component;
 
-import lombok.Setter;
-
-@Setter
+@Component
 public class CricketCoach implements Coach {
 	private String email;
 	private String teamName;
 	private Fortune fortune;
+	
+	public String getEmail() {
+		return email;
+	}
 	
 	public String getDailyWorkout() {
 		// TODO Auto-generated method stub
