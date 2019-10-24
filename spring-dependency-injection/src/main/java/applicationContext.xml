@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<bean id="fortuneService" class="com.mycompany.spring_dependency_injection.beans.FortuneService" scope="singleton"/>
+<bean id="theCoach" class="com.mycompany.spring_dependency_injection.beans.CricketCoach">
+<!-- <constructor-arg name="fortune" ref="fortuneService"/>  Constructor injection-->
+<!-- <property name="email" value="admin@example.com"/>
+<property name="teamName" value="Sunrisers Hyderabad"/> Literal injection-->
+<property name="email" value="${foo.email}"/>
+<property name="teamName" value="${foo.teamName}"/>
+<property name="fortune" ref="fortuneService"/>
+</bean>
+<context:property-placeholder location="classpath:sport.properties"/>
+</beans>
